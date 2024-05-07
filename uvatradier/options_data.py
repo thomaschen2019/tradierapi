@@ -1,4 +1,4 @@
-from .base import Tradier
+from base import Tradier
 
 import requests
 import pandas as pd
@@ -47,7 +47,7 @@ class OptionsData (Tradier):
 		#
 		# Convert returned json -> pandas dataframe
 		#
-
+		print(r.json())
 		option_df = pd.DataFrame(r.json()['options']['option']);
 
 
@@ -128,7 +128,7 @@ class OptionsData (Tradier):
 			params 	= {'symbol':symbol, 'includeAllRoots':True, 'strikes':str(strikes)},
 			headers = self.REQUESTS_HEADERS
 		);
-
+		print(r.json())
 		if r.status_code != 200:
 			return 'wtf';
 
